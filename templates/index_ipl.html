@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>IPL First Inning Score Prediction</title>
+    <style>
+        body{
+        background-color: #FFFF99
+        }
+        div.form {
+        background-color: pink;
+        margin-left: 400px;
+        margin-right: 400px;
+        border: None;
+        border-radius: 10px;
+        }
+        .select {
+        border: None;
+        border-radius: 10px;
+        height: 25px;
+        }
+        input[type=text] {
+        text-align: center;
+        border: None;
+        border-radius: 10px;
+        width: 200px;
+        height: 25px;
+        }
+        input[type=submit] {
+        background-color: grey;
+        color: white;
+        border: None;
+        border-radius: 10px;
+        width: 100px;
+        height: 30px;
+        }
+        input[type=submit]:hover {
+        box-shadow: 2px 4px 20px #666666;
+        cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <h1>IPL First Inning Score Prediction</h1><br>
+        <div class="form">
+            <form action="{{ url_for('predict') }}" method="POST">
+                <br>
+                <select class="select" name="batting-team">
+                    <option value="none">----Select a Batting Team----</option>
+                    <option value="Mumbai Indians">Mumbai Indians</option>
+                    <option value="Kolkata Knight Riders">Kolkata Knight Riders</option>
+                    <option value="Chennai Super Kings">Chennai Super Kings</option>
+                    <option value="Rajasthan Royals">Rajasthan Royals</option>
+                    <option value="Kings XI Punjab">Kings XI Punjab</option>
+                    <option value="Royal Challengers Bangalore">Royal Challengers Bangalore</option>
+                    <option value="Delhi Daredevils">Delhi Daredevils</option>
+                    <option value="Sunrisers Hyderabad">Sunrisers Hyderabad</option>
+                </select><br><br>
+                <select class="select" name="bowling-team">
+                    <option value="none">----Select a Bowling Team----</option>
+                    <option value="Mumbai Indians">Mumbai Indians</option>
+                    <option value="Kolkata Knight Riders">Kolkata Knight Riders</option>
+                    <option value="Chennai Super Kings">Chennai Super Kings</option>
+                    <option value="Rajasthan Royals">Rajasthan Royals</option>
+                    <option value="Kings XI Punjab">Kings XI Punjab</option>
+                    <option value="Royal Challengers Bangalore">Royal Challengers Bangalore</option>
+                    <option value="Delhi Daredevils">Delhi Daredevils</option>
+                    <option value="Sunrisers Hyderabad">Sunrisers Hyderabad</option>
+                </select><br><br>
+                <input type="text" name="overs" placeholder="Overs (>= 5.0) eg. 10.2"><br><br>
+                <input type="text" name="runs" placeholder="Runs eg. 68"><br><br>
+                <input type="text" name="wickets" placeholder="Wickets eg. 5"><br><br>
+                <input type="text" name="runs_in_prev_5" placeholder="Runs Scored In Prev 5 Overs eg. 42"><br><br>
+                <input type="text" name="wickets_in_prev_5" placeholder="Wickets Taken In Prev 5 Overs eg. 3"><br><br>
+                <input type="submit" value="Predict Score"><br><br>
+            </form>
+        </div>
+        <div>
+            <h2>{{ prediction_text }}</h2>
+        </div>
+    </center>
+</body>
+</html>
